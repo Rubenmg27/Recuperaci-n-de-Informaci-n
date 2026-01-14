@@ -1,0 +1,92 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/schema#> .
+
+# Clases
+ex:Document a rdfs:Class .
+ex:Person a rdfs:Class .
+ex:URL a rdfs:Class .
+
+# Subclases de Document
+ex:TAZ-TFG a rdfs:Class ;
+    rdfs:subClassOf ex:Document .
+ex:TAZ-TFM a rdfs:Class ;
+    rdfs:subClassOf ex:Document .
+ex:TAZ-PFC a rdfs:Class ;
+    rdfs:subClassOf ex:Document .
+ex:TESIS a rdfs:Class ;
+    rdfs:subClassOf ex:Document .
+
+# Propiedades
+ex:creator a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range ex:Person ;
+    rdfs:label "Made by" ;
+    rdfs:comment "Indica si esa persona es la autora del documento (XML tag: author)." .
+
+ex:contributor a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range ex:Person ;
+    rdfs:label "Directed by" ;
+    rdfs:comment "Indica si esa persona ha dirigido el documento (XML tag: contributor)." .
+
+ex:subject a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Has subject" ;
+    rdfs:comment "Indica el subject del documento (XML tag: subject)." .
+
+ex:publisher a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Published by" ;
+    rdfs:comment "Indica el departamento donde se publicó el documento (XML tag: publisher)." .
+
+ex:relation a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range ex:URL ;
+    rdfs:label "Has relation" ;
+    rdfs:comment "Indica la relacion con otro documento (XML tag: relation)." .
+
+ex:rights a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range ex:URL ;
+    rdfs:label "Has rights" ;
+    rdfs:comment "Indica sus derechos del documento (XML tag: rights)." .
+
+ex:title a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Title" ;
+    rdfs:comment "Indica el titulo del documento (XML tag: title)." .
+
+ex:description a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Description" ;
+    rdfs:comment "Es la descripción del documento (XML tag: description)." .
+
+ex:language a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Language" ;
+    rdfs:comment "Indica su idioma(XML tag: language)." .
+
+ex:date a rdf:Property ;
+    rdfs:domain ex:Document ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Date" ;
+    rdfs:comment "Indica el año de creación(XML tag: date)." .
+
+ex:Nombre a rdf:Property ;
+    rdfs:domain ex:Person ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "Person name" ;
+    rdfs:comment "Representa el nombre de una persona." .
+
+ex:URL a rdf:Property ;
+    rdfs:domain ex:URL ;
+    rdfs:range rdfs:Literal ;
+    rdfs:label "URLs" ;
+    rdfs:comment "Representa la URL de un derecho o relacion" 

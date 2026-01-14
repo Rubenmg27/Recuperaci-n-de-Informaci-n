@@ -1,0 +1,135 @@
+INFORMATION_NEED 105-5
+precision	0.022
+recall	0.033
+F1	0.027
+prec@10	0.000
+average_precision	0.031
+recall_precision
+0.033	0.031
+interpolated_recall_precision
+0.000	0.031
+0.100	0.000
+0.200	0.000
+0.300	0.000
+0.400	0.000
+0.500	0.000
+0.600	0.000
+0.700	0.000
+0.800	0.000
+0.900	0.000
+1.000	0.000
+
+INFORMATION_NEED 106-4
+precision	0.067
+recall	0.057
+F1	0.061
+prec@10	0.000
+average_precision	0.062
+recall_precision
+0.019	0.067
+0.038	0.053
+0.057	0.068
+interpolated_recall_precision
+0.000	0.068
+0.100	0.000
+0.200	0.000
+0.300	0.000
+0.400	0.000
+0.500	0.000
+0.600	0.000
+0.700	0.000
+0.800	0.000
+0.900	0.000
+1.000	0.000
+
+INFORMATION_NEED 107-2
+precision	0.067
+recall	0.043
+F1	0.053
+prec@10	0.000
+average_precision	0.057
+recall_precision
+0.014	0.029
+0.029	0.057
+0.043	0.083
+interpolated_recall_precision
+0.000	0.083
+0.100	0.000
+0.200	0.000
+0.300	0.000
+0.400	0.000
+0.500	0.000
+0.600	0.000
+0.700	0.000
+0.800	0.000
+0.900	0.000
+1.000	0.000
+
+INFORMATION_NEED 109-2
+precision	0.178
+recall	0.211
+F1	0.193
+prec@10	0.400
+average_precision	0.351
+recall_precision
+0.026	0.333
+0.053	0.500
+0.079	0.375
+0.105	0.400
+0.132	0.455
+0.158	0.286
+0.184	0.250
+0.211	0.211
+interpolated_recall_precision
+0.000	0.500
+0.100	0.455
+0.200	0.211
+0.300	0.000
+0.400	0.000
+0.500	0.000
+0.600	0.000
+0.700	0.000
+0.800	0.000
+0.900	0.000
+1.000	0.000
+
+INFORMATION_NEED 208-1
+precision	0.022
+recall	0.021
+F1	0.022
+prec@10	0.000
+average_precision	0.024
+recall_precision
+0.021	0.024
+interpolated_recall_precision
+0.000	0.024
+0.100	0.000
+0.200	0.000
+0.300	0.000
+0.400	0.000
+0.500	0.000
+0.600	0.000
+0.700	0.000
+0.800	0.000
+0.900	0.000
+1.000	0.000
+
+TOTAL
+precision	0.071
+recall	0.073
+F1	0.072
+prec@10	0.080
+MAP	0.105
+interpolated_recall_precision
+0.000	0.141
+0.100	0.091
+0.200	0.042
+0.300	0.000
+0.400	0.000
+0.500	0.000
+0.600	0.000
+0.700	0.000
+0.800	0.000
+0.900	0.000
+1.000	0.000
+

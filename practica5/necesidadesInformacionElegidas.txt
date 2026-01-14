@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<informationNeeds>
+    <informationNeed>
+        <identifier>105-5</identifier>
+        <text>
+            <![CDATA[
+                PREFIX modelo: <http://www.equipo35.com/model#>
+                PREFIX text: <http://jena.apache.org/text#>
+                SELECT DISTINCT ?x
+                WHERE {
+                  { (?x ?score1) text:query (modelo:subject 'caciquismo') . }
+                  UNION
+                  { (?x ?score2) text:query (modelo:subject 'dictadura') . }
+                  UNION
+                  { (?x ?score3) text:query (modelo:subject 'represion politica') . }
+                  UNION
+                  { (?x ?score4) text:query (modelo:subject 'politica') . }
+                  UNION
+                  { (?x ?score5) text:query (modelo:subject 'Huesca') . }
+                  UNION
+                  { (?x ?score6) text:query (modelo:subject 'España') . }
+
+                  OPTIONAL { (?x ?score7) text:query (modelo:subject 'siglo XX') . }
+                  OPTIONAL { (?x ?score8) text:query (modelo:description 'caciquismo') . }
+                  OPTIONAL { (?x ?score9) text:query (modelo:description 'dictadura') . }
+                  OPTIONAL { (?x ?score10) text:query (modelo:description 'represion politica') . }
+                  OPTIONAL { (?x ?score11) text:query (modelo:description 'politica') . }
+                  OPTIONAL { (?x ?score12) text:query (modelo:description 'Huesca') . }
+                  OPTIONAL { (?x ?score13) text:query (modelo:description 'España') . }
+
+                  OPTIONAL { (?x ?score14) text:query (modelo:title 'caciquismo') . }
+                  OPTIONAL { (?x ?score15) text:query (modelo:title 'dictadura') . }
+                  OPTIONAL { (?x ?score16) text:query (modelo:title 'represion politica') . }
+
+                  OPTIONAL { (?x ?score17) text:query (modelo:date 'siglo XX') . }
+
+                  # BIND to calculate total score based on conditions or fields
+                  BIND (
+                    COALESCE(?score1, 0) + COALESCE(?score2, 0) + COALESCE(?score3, 0) +
+                    COALESCE(?score4, 0) + COALESCE(?score5, 0) + COALESCE(?score6, 0) +
+                    COALESCE(?score7, 0) + COALESCE(?score8, 0) + COALESCE(?score9, 0) +
+                    COALESCE(?score10, 0) + COALESCE(?score11, 0) + COALESCE(?score12, 0) +
+                    COALESCE(?score13, 0) + COALESCE(?score14, 0) + COALESCE(?score15, 0) +
+                    COALESCE(?score16, 0) + COALESCE(?score17, 0) AS ?totalScore
+                  )
+                }
+                ORDER BY DESC(?totalScore)
+
+            ]]>
+        </text>
+    </informationNeed>
+    <informationNeed>
+        <identifier>106-4</identifier>
+        <text>
+            <![CDATA[
+                PREFIX modelo: <http://www.equipo35.com/model#>
+                PREFIX text: <http://jena.apache.org/text#>
+                SELECT DISTINCT ?x WHERE {
+                    ?x modelo:publisher ?publicador . FILTER
+                        (regex(str(?publicador), "informática", "i") ||
+                        regex(str(?publicador), "computer science", "i")||
+                        regex(str(?publicador), "departamento de informatica", "i") ||
+                        regex(str(?publicador), "departamento de informatica e ingenieria de sistemas", "i")) .
+                    OPTIONAL { (?x ?score1) text:query (modelo:description 'Ingeniería Biomédica') } .
+                    OPTIONAL { (?x ?score2) text:query (modelo:description 'diagnóstico de enfermedades neurodegenerativas') } .
+                    OPTIONAL { (?x ?score3) text:query (modelo:description 'Alzheimer') } .
+                    OPTIONAL { (?x ?score4) text:query (modelo:description 'Parkinson') } .
+                    OPTIONAL { (?x ?score5) text:query (modelo:description 'departamento de ingeniería') } .
+                    BIND (COALESCE(?score1, 4) + COALESCE(?score2, 3) + COALESCE(?score3, 0) + COALESCE(?score4, 0)
+                        + COALESCE(?score5, 1) as ?scoretotal)
+                } ORDER BY DESC(?scoretotal)
+            ]]>
+        </text>
+    </informationNeed>
+    <informationNeed>
+        <identifier>107-2</identifier>
+        <text>
+            <![CDATA[
+                PREFIX modelo: <http://www.equipo35.com/model#>
+                PREFIX text: <http://jena.apache.org/text#>
+                SELECT DISTINCT ?x WHERE {
+                    OPTIONAL { (?x ?score1) text:query (modelo:description 'evolución económica de España') } .
+                    OPTIONAL { (?x ?score2) text:query (modelo:description 'crisis de 2008') } .
+                    OPTIONAL { (?x ?score3) text:query (modelo:description 'partidos políticos') } .
+                    OPTIONAL { (?x ?score4) text:query (modelo:description 'relevancia social') } .
+                    BIND (COALESCE(?score1, 3) + COALESCE(?score2, 3) + COALESCE(?score3, 2) + COALESCE(?score4, 1)
+                        as ?scoretotal)
+                } ORDER BY DESC(?scoretotal)
+            ]]>
+        </text>
+    </informationNeed>
+    <informationNeed>
+        <identifier>109-2</identifier>
+        <text>
+            <![CDATA[
+                PREFIX modelo: <http://www.equipo35.com/model#>
+                PREFIX text: <http://jena.apache.org/text#>
+                SELECT DISTINCT ?x WHERE {
+                    ?x modelo:date ?fecha . FILTER
+                        (?fecha >= 2010 && ?fecha <= 2018) .
+                    OPTIONAL { (?x ?score1) text:query (modelo:description 'Bioinformática') } .
+                    OPTIONAL { (?x ?score2) text:query (modelo:description 'Biología Computacional') } .
+                    OPTIONAL { (?x ?score3) text:query (modelo:description 'Phylogenetics') } .
+                    OPTIONAL { (?x ?score4) text:query (modelo:description 'Computational Biology') }
+                    OPTIONAL { (?x ?score5) text:query (modelo:description 'Filogenética') }
+                    BIND (COALESCE(?score1, 0) + COALESCE(?score2, 0) + COALESCE(?score3, 0) + COALESCE(?score4, 0) +
+                     + COALESCE(?score5, 0) as ?scoretotal)
+                } ORDER BY DESC(?scoretotal)
+            ]]>
+        </text>
+    </informationNeed>
+    <informationNeed>
+        <identifier>208-1</identifier>
+        <text>
+            <![CDATA[
+                PREFIX modelo: <http://www.equipo35.com/model#>
+                PREFIX text: <http://jena.apache.org/text#>
+                PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+                SELECT DISTINCT ?x WHERE {
+                    ?x rdf:type ?tipo . FILTER
+                       ( regex(str(?tipo), "TAZ-TFG")) .
+                    ?x modelo:date ?fecha . FILTER
+                        (?fecha >= 2014) .
+                    ?x modelo:language ?idioma . FILTER
+                        (?idioma = "spa") .
+                    {
+                        ?x modelo:creator ?autorNode .
+                        ?autorNode modelo:Nombre ?autor .
+                        FILTER(regex(str(?autor), "Javier", "i"))
+                    }
+                    UNION
+                    {
+                        ?x modelo:contributor ?coautorNode .
+                        ?coautorNode modelo:Nombre ?coautor .
+                        FILTER(regex(str(?coautor), "Javier", "i"))
+                    }
+                    ?x modelo:publisher ?publicador . FILTER
+                        (regex(str(?publicador), "informática", "i") ||
+                        regex(str(?publicador), "computer science", "i")||
+                        regex(str(?publicador), "departamento de informatica", "i") ||
+                        regex(str(?publicador), "departamento de informatica e ingenieria de sistemas", "i") ||
+                        regex(str(?publicador), "area de lenguajes y de sistemas informaticos", "i")) .
+                }
+
+            ]]>
+        </text>
+    </informationNeed>
+</informationNeeds>
+

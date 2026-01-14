@@ -1,0 +1,8 @@
+contributor:Albina
+creator:Javier
+contributor:Albina AND creator:Javier
+contributor:Albina OR creator:Javier
+creator:Juan AND date:2007
+creator:Juan AND date:2008
+creator:Juan AND (date:2007 OR date:2008) 
+subject:Magisterio
